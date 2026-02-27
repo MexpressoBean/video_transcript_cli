@@ -9,7 +9,11 @@
   },
   "scripts": {
     "start": "node bin/ytx.js",
-    "check": "node bin/ytx.js --help"
+    "check": "node bin/ytx.js --help",
+    "lint": "eslint \"src/**/*.js\" \"bin/**/*.js\"",
+    "test": "vitest run --globals",
+    "test:watch": "vitest --globals",
+    "test:coverage": "vitest run --globals --coverage"
   },
   "keywords": [
     "youtube",
@@ -22,5 +26,11 @@
   "dependencies": {
     "commander": "^14.0.3",
     "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^10.0.2",
+    "vitest": "^4.0.18"
   }
 }

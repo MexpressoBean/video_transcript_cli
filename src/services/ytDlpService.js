@@ -166,10 +166,10 @@ async function fetchVideoTitle({ url }) {
     return title || null;
   } catch (error) {
     if (error && error.code === 'ENOENT') {
-      throw new Error('`yt-dlp` is not installed or not in PATH.');
+      throw new Error('`yt-dlp` is not installed or not in PATH.', { cause: error });
     }
 
-    throw new Error(`Failed to fetch video title with yt-dlp: ${error.message}`);
+    throw new Error(`Failed to fetch video title with yt-dlp: ${error.message}`, { cause: error });
   }
 }
 
@@ -195,10 +195,10 @@ async function fetchVttFile({ url, lang }) {
       await runCommand('yt-dlp', args, { cwd: tempDir, timeoutMs: 180000 });
     } catch (error) {
       if (error && error.code === 'ENOENT') {
-        throw new Error('`yt-dlp` is not installed or not in PATH.');
+        throw new Error('`yt-dlp` is not installed or not in PATH.', { cause: error });
       }
 
-      throw new Error(`Failed to fetch subtitles with yt-dlp: ${error.message}`);
+      throw new Error(`Failed to fetch subtitles with yt-dlp: ${error.message}`, { cause: error });
     }
 
     const files = await fs.readdir(tempDir);
@@ -218,7 +218,7 @@ async function fetchVttFile({ url, lang }) {
     let videoTitle = null;
     try {
       videoTitle = await fetchVideoTitle({ url: normalizedUrl });
-    } catch (_error) {
+    } catch {
       // Title lookup is a non-critical enhancement; transcript generation can continue.
       videoTitle = null;
     }
@@ -238,5 +238,11 @@ async function fetchVttFile({ url, lang }) {
 }
 
 module.exports = {
+  runChildProcess,
+  runCommand,
+  runCommandCapture,
+  getRequestedLanguages,
+  subtitleScore,
+  selectBestVttFile,
   fetchVttFile,
 };

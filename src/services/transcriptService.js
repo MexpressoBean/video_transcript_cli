@@ -63,5 +63,8 @@ async function generateTranscript({ url, lang, outputPath, outputDir, customName
 }
 
 module.exports = {
+  DEFAULT_OUTPUT_DIR,
+  deriveBaseName,
+  resolveOutputPath,
   generateTranscript,
 };

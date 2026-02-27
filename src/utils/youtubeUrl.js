@@ -18,7 +18,7 @@ function normalizeYouTubeUrl(rawUrl) {
   try {
     parsed = new URL(unescaped);
   } catch (error) {
-    throw new Error('Invalid URL. Please provide a valid YouTube link.');
+    throw new Error('Invalid URL. Please provide a valid YouTube link.', { cause: error });
   }
 
   const hostname = parsed.hostname.toLowerCase();

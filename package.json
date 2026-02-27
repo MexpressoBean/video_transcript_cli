@@ -1,0 +1,26 @@
+{
+  "name": "video-transcript-cli",
+  "version": "1.0.0",
+  "description": "Simple CLI to fetch and clean YouTube transcripts into text",
+  "type": "commonjs",
+  "main": "src/cli/index.js",
+  "bin": {
+    "ytx": "bin/ytx.js"
+  },
+  "scripts": {
+    "start": "node bin/ytx.js",
+    "check": "node bin/ytx.js --help"
+  },
+  "keywords": [
+    "youtube",
+    "transcript",
+    "cli",
+    "yt-dlp"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^14.0.3",
+    "picocolors": "^1.1.1"
+  }
+}

@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.jks
+*.keystore
+*.kubeconfig
+*.ovpn
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+
+# API keys / service account files
+*credentials*.json
+*secret*.json
+*secrets*.json
+service-account*.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime/cache/temp
+.cache/
+.tmp/
+tmp/
+temp/
+*.tmp
+
+# Build/output/coverage
+dist/
+build/
+out/
+coverage/
+.nyc_output/
+
+# Local app output
+ytx_video_transcripts/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.orig
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Optional local tool config
+.npmrc.local
